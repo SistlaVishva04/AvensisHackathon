@@ -10,7 +10,7 @@ import DashboardPage from './pages/DashboardPage';
 import UploadPage from './pages/UploadPage';
 import ManualEntryPage from './pages/ManualEntryPage';
 import ProtectedRoute from './components/ProtectedRoute';
-
+import QRCodePage from "./pages/QRCodePage";
 function App() {
   return (
     <ThemeProvider>
@@ -34,6 +34,11 @@ function App() {
               <Route path="/manual-entry" element={
                 <ProtectedRoute>
                   <ManualEntryPage />
+                </ProtectedRoute>
+              } />
+              <Route path="/qrcode" element={
+                <ProtectedRoute>
+                  <QRCodePage />
                 </ProtectedRoute>
               } />
             </Routes>

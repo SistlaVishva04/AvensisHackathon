@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { BarChart3, Moon, Sun, Menu, X, LogOut, User, Upload, Edit } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
-
 interface NavbarProps {
   transparent?: boolean;
 }
@@ -61,6 +60,17 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                   <BarChart3 className="h-4 w-4" />
                   <span>Dashboard</span>
                 </Link>
+                <Link
+  to="/qrcode"
+  className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-all duration-200 ${
+    isActive('/qrcode') 
+      ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400' 
+      : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+  }`}
+>
+  <span>QR Code</span>
+</Link>
+
                 <Link 
                   to="/upload" 
                   className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-all duration-200 ${
@@ -102,6 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                 <Link to="/login" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                   Login
                 </Link>
+               
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Link
                     to="/signup"
